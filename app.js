@@ -1,4 +1,6 @@
 // app.js
+import request from './utils/request.js'
+
 App({
   onLaunch() {
     // 展示本地存储能力
@@ -6,12 +8,35 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        request({
+          url:  '/wx/user/' + this.globalData.appID + '/login',
+          method: 'get',
+          data: {
+            code: res.code
+          } 
+        }).then(res => {
+          console.log(res)
+
+          this.globalData.login = true
+          // 设置登录时间
+          this.globalData.loginTime = Date.now()
+
+          // 设置登录信息
+          const userInfo = this.globalData.userInfo
+          userInfo.openid = res.openid
+          userInfo.postmark = res.postmark
+          userInfo.token = res.token
+        }).then(res => {
+          
+        }).catch(err => {
+          console.log(err)
+        })
       }
     })
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -34,6 +59,10 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: {},
+    loginTime: null,
+    login: false,
+    appID: 'wxb915ee2a665fcb6c',
+    baseURL: 'http://localhost:8088'
   }
 })
