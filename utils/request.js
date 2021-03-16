@@ -1,3 +1,5 @@
+import sha1 from './sha1'
+
 
 // 正在队列上的请求
 const pendings = []
@@ -47,7 +49,20 @@ const do_request = (app, options) => {
   
     // 检查登录状态
     if(app.globalData.login) {
-      
+      const userBaseInfo = app.globalData.userBaseInfo
+      let random_code = `RandomCode [${userBaseInfo.openid}][${header_options.timestamp}][${app.globalData.appID}]`
+      console.log(random_code)
+      random_code = sha1(random_code)
+      console.log(random_code)
+
+      let signed = `SIGN [${userBaseInfo.postmark}][${random_code}][${userBaseInfo.token}]`
+
+      signed = sha1(signed)
+      console.log(signed)
+
+      header_options['signed'] = signed;
+
+      header_options['postmark'] = userBaseInfo.postmark;
     }
 
     options.url = app.globalData.baseURL + url
@@ -65,7 +80,7 @@ const do_request = (app, options) => {
         if(data.status >= 200 && data.status < 300) {
           resolve(data.data)
         } else {
-          reject(data.data)
+          reject(data.msg)
         }
       },
       fail: function(res) {
