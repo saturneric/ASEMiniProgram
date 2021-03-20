@@ -6,6 +6,11 @@ Page({
    */
   data: {
 
+    radioItems: [
+      { name: '1', value: '学生', checked: 'true'},
+      { name: '2', value: '家长'},
+      { name: '2', value: '辅导员'},
+    ],
   },
 
   /**

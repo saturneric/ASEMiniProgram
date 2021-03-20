@@ -1,2 +1,45 @@
-<!--pages/bind-document.wxml-->
-<text>pages/bind-document.wxml</text>
+<view class="container">
+  <view class="weui-form__text-area">
+    <h2 class="weui-form__title">绑定您的个人档案</h2>
+    <view class="weui-form__desc">在这里将您的账户与您在学院留存的档案绑定，以便确认您的身份。绑定完成后，系统将通过档案获知您的账号与其他账号的关系。</view>
+  </view>
+  <view class="weui-form">
+    <view class="weui-form__control-area">
+      <view class="weui-cells__group weui-cells__group_form">
+        <view class="weui-cells__title">账号类型</view>
+        <view class="weui-cells weui-cells_radio">
+          <radio-group class="radio-group" bindchange="radioChange">
+              <label class="weui-cell weui-cell_active weui-check__label" wx:for="{{radioItems}}" wx:key="name">
+                  <view class="weui-cell__bd">
+                      <view>{{item.value}}</view>
+                  </view>
+                  <view class="weui-cell__ft">
+                      <radio
+                          class="weui-check"
+                          value="{{item.name}}"
+                          checked="{{item.checked}}"
+                      />
+                      <i class="weui-icon-checked"></i>
+                  </view>
+              </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class="weui-cells__group weui-cells__group_form">
+        <view class="weui-cells__title">档案口令</view>
+        <view class="weui-cells weui-cells_form">
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd"><label class="weui-label">口令码</label></view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="学院下发的档案口令码" placeholder-class="weui-input__placeholder" />
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view>
+    <a class="weui-btn weui-btn_primary">查询档案</a>
+  </view>
+</view>

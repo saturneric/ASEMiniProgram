@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="weui-form__text-area">
+    <h2 class="weui-form__title">个人信息授权</h2>
+    <view class="weui-form__desc">我们需要您进行基本信息授权，我们将用这些信息以初始化您的账户。</view>
+  </view>
+  <view class="page__bd">
+        <view class="weui-btn-area">
+            <button open-type="getUserInfo" type="primary" bindgetuserinfo="bindGetUserInfo" >授权</button>
+        </view>
+    </view>
+</view>

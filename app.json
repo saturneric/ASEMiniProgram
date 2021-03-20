@@ -2,13 +2,17 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/bind-document/bind-document"
+    "pages/bind-document/bind-document",
+    "pages/get-user-info/get-user-info"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "全员育人小程序",
     "navigationBarTextStyle": "black"
+  },
+  "useExtendedLib": {
+    "weui": true
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

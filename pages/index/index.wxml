@@ -10,4 +10,6 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <i-spin size="large" fix wx:if="{{ loading }}"></i-spin>
+  <i-spin size="large" fix wx:if="{{ unrecoverable }}" custom><view>您的账号已被封禁</view></i-spin>
 </view>
