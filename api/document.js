@@ -9,3 +9,14 @@ export const getDocument = openid => {
     }
   })
 }
+
+export const searchDocument = (userRole, documentCode) => {
+  return request({
+    url: "/document/search",
+    method: "get",
+    data: {
+      userRole, 
+      documentCode
+    }
+  })
+}

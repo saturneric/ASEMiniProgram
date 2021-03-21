@@ -7,5 +7,5 @@
         <view class="weui-btn-area">
             <button open-type="getUserInfo" type="primary" bindgetuserinfo="bindGetUserInfo" >授权</button>
         </view>
-    </view>
+  </view>
 </view>
