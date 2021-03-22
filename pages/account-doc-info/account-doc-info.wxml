@@ -1,0 +1,79 @@
+<!--pages/account-doc-info/account-doc-info.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd">
+		<view class="page__title">账号与档案信息</view>
+		<view class="page__desc">小程序账号与绑定的档案信息</view>
+	</view>
+  <view class="page__bd">
+    <view class="weui-form-preview" wx:if="{{hasUserInfo}}">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">昵称</label>
+          <em class="weui-form-preview__value">{{userInfo.nickName}}</em>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">所在省份</label>
+          <text class="weui-form-preview__value">{{userInfo.province}}</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">所在城市</label>
+          <text class="weui-form-preview__value">{{userInfo.city}}</text>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <a class="weui-form-preview__btn weui-form-preview__btn_primary">修改</a>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview" wx:if="{{hasUserDocument}}">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">真实姓名</label>
+          <em class="weui-form-preview__value">{{userDocument.realName}}</em>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">性别</label>
+          <text class="weui-form-preview__value">{{userDocument.gender}}</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">角色</label>
+          <text class="weui-form-preview__value">{{userDocument.role}}</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">行政班号</label>
+          <text class="weui-form-preview__value">{{userDocument.className}}</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">入学年份</label>
+          <text class="weui-form-preview__value">{{userDocument.gradeYear}}</text>
+        </view>
+        <view class="weui-form-preview__item" wx:for="{{userDocument.major}}" wx:key="name">
+          <label class="weui-form-preview__label">专业或大类</label>
+          <text class="weui-form-preview__value">{{item}}</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">学院</label>
+          <text class="weui-form-preview__value">{{userDocument.college}}</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">民族</label>
+          <text class="weui-form-preview__value">{{userDocument.ethnic}}</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">政治面貌</label>
+          <text class="weui-form-preview__value">{{userDocument.politicalStatus}}</text>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+      </view>
+    </view>
+  </view>
+
+
+</view>

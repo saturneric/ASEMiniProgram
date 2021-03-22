@@ -3,13 +3,20 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/bind-document/bind-document",
-    "pages/get-user-info/get-user-info"
+    "pages/get-user-info/get-user-info",
+    "pages/account-doc-info/account-doc-info",
+    "pages/account-relation-info/account-relation-info",
+    "pages/my-grade/my-grade",
+    "pages/child-supervisor/child-supervisor",
+    "pages/announcement/announcement",
+    "pages/message/message"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "全员育人小程序",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#EDEDED",
+    "backgroundColor": "#EDEDED"
   },
   "useExtendedLib": {
     "weui": true

@@ -1,0 +1,109 @@
+<!--pages/account-relation-info/account-relation-info.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd">
+		<view class="page__title">关系信息</view>
+		<view class="page__desc">我与其他账号的关系</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">孩子名称</label>
+          <em class="weui-form-preview__value">李xx</em>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">性别</label>
+          <text class="weui-form-preview__value">女</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">入学年份</label>
+          <text class="weui-form-preview__value">2018</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">专业或大类</label>
+          <text class="weui-form-preview__value">软件工程</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">学院</label>
+          <text class="weui-form-preview__value">软件学院</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">账号绑定状态</label>
+          <text class="weui-form-preview__value">已绑定</text>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">家长名称</label>
+          <em class="weui-form-preview__value">李ok</em>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">性别</label>
+          <text class="weui-form-preview__value">男</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">所在城市</label>
+          <text class="weui-form-preview__value">Guangdong</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">所在省份</label>
+          <text class="weui-form-preview__value">Shenzhen</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">联系电话</label>
+          <text class="weui-form-preview__value">13600000000</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">账号绑定状态</label>
+          <text class="weui-form-preview__value">已绑定</text>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-form-preview">
+      <view class="weui-form-preview__hd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">辅导员名称</label>
+          <em class="weui-form-preview__value">高xy</em>
+        </view>
+      </view>
+      <view class="weui-form-preview__bd">
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">性别</label>
+          <text class="weui-form-preview__value">女</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">邮箱</label>
+          <text class="weui-form-preview__value">supervisor@nwpu.edu.cn</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">联系电话</label>
+          <text class="weui-form-preview__value">13600000000</text>
+        </view>
+        <view class="weui-form-preview__item">
+          <label class="weui-form-preview__label">账号绑定状态</label>
+          <text class="weui-form-preview__value">已绑定</text>
+        </view>
+      </view>
+      <view class="weui-form-preview__ft">
+        <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+      </view>
+    </view>
+  </view>
+  
+</view>

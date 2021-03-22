@@ -1,15 +1,118 @@
 <!--index.wxml-->
-<view class="container">
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd">
+		<view class="page__title">您好，{{userDocument.realName}}</view>
+		<view class="page__desc">欢迎来到全员育人管理系统</view>
+	</view>
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
+    <block wx:if="{{hasUserInfo && canIUse}}">
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+
+  <view class="page__bd">
+		<view class="weui-cells__title">个人信息</view>
+		<view class="weui-cells">
+			<view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindAccountDocInfo">
+				<view class="weui-cell__bd">我的账号与档案信息</view>
+				<view class="weui-cell__ft" style="font-size: 0;">
+					<text class="demo_badge_tips">详细信息</text>
+				</view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindAccountRelationInfo">
+				<view class="weui-cell__bd">我的关系信息</view>
+				<view class="weui-cell__ft" style="font-size: 0;">
+					<text class="demo_badge_tips">详细信息</text>
+				</view>
+			</view>
+		</view>
+		<view class="weui-cells__title">功能</view>
+		<view class="weui-cells demo_badge_cells">
+			<view class="weui-cell weui-cell_active">
+				<view class="weui-cell__hd">
+					<image src="../../images/pic_160.png"></image>
+					<text class="weui-badge">8</text>
+				</view>
+				<view class="weui-cell__bd">
+					<view>我的孩子</view>
+					<view class="demo_badge_desc">摘要信息</view>
+				</view>
+      </view>
+      <view class="weui-cell weui-cell_active" bindtap="bindChildSupervisor">
+				<view class="weui-cell__hd">
+					<image src="../../images/pic_160.png"></image>
+					<text class="weui-badge">8</text>
+				</view>
+				<view class="weui-cell__bd">
+					<view>孩子的辅导员</view>
+					<view class="demo_badge_desc">摘要信息</view>
+				</view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindAnnouncement">
+				<view class="weui-cell__bd">
+					<text class="demo_badge_title">公告通知</text>
+					<text class="weui-badge">4</text>
+				</view>
+				<view class="weui-cell__ft"></view>
+			</view>
+			<view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMessage">
+				<view class="weui-cell__bd">
+					<text class="demo_badge_title">收到的消息</text>
+					<text class="weui-badge">32</text>
+				</view>
+				<view class="weui-cell__ft"></view>
+			</view>
+			<view class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd">
+					<text class="demo_badge_title">问答机器人</text>
+					<text class="weui-badge">8</text>
+				</view>
+				<view class="weui-cell__ft">详细信息</view>
+			</view>
+			<view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyGrade">
+				<view class="weui-cell__bd">
+					<text class="demo_badge_title">我的成绩</text>
+					<text class="weui-badge">New</text>
+				</view>
+				<view class="weui-cell__ft"></view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd">
+					<text class="demo_badge_title">我的荣誉</text>
+					<text class="weui-badge">New</text>
+				</view>
+				<view class="weui-cell__ft"></view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd">
+					<text class="demo_badge_title">我的健康</text>
+					<text class="weui-badge">New</text>
+				</view>
+				<view class="weui-cell__ft"></view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd">
+					<text class="demo_badge_title">我的学生</text>
+					<text class="weui-badge">New</text>
+				</view>
+				<view class="weui-cell__ft"></view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access">
+				<view class="weui-cell__bd">
+					<text class="demo_badge_title">学生的成绩</text>
+					<text class="weui-badge">New</text>
+				</view>
+				<view class="weui-cell__ft"></view>
+			</view>
+		</view>
+	</view>
+
+  <view class="weui-footer">
+		<view class="weui-footer__text">Copyright &copy; 2019-2022 codesdream.com</view>
   </view>
+
   <i-spin size="large" fix wx:if="{{ loading }}"></i-spin>
   <i-spin size="large" fix wx:if="{{ unrecoverable }}" custom><view>您的账号已被封禁</view></i-spin>
+  
 </view>

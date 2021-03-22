@@ -108,14 +108,22 @@
   </view>
   <view wx:if="{{showDocument}}">
     <a class="weui-btn weui-btn_disabled weui-btn_default" bindtap="onReset">重新查询</a>
-    <a class="weui-btn weui-btn_primary" bindtap="onConfirm">绑定</a>
+    <a class="weui-btn weui-btn_primary" bindtap="onBind">绑定</a>
   </view>
 
   <view class="fadeIn {{hideWarnToast ? 'fadeOut' : ''}}" wx:if="{{warnToast}}">
 		<view class="weui-mask_transparent"></view>
 		<view class="weui-toast">
 			<i class="weui-icon-warn weui-icon_toast"></i>
-			<view class="weui-toast__content">未找到对应档案</view>
+			<view class="weui-toast__content">{{warnText}}</view>
+		</view>
+  </view>
+  
+  <view class="fadeIn {{hideToast ? 'fadeOut' : ''}}" wx:if="{{toast}}">
+		<view class="weui-mask_transparent"></view>
+		<view class="weui-toast">
+			<i class="weui-icon-success-no-circle weui-icon_toast"></i>
+			<view class="weui-toast__content">已完成</view>
 		</view>
 	</view>
 

@@ -1,0 +1,119 @@
+<!--pages/my-grade/my-grade.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd" wx:if="{{false}}">
+		<view class="page__title">我的成绩</view>
+		<view class="page__desc">我在学校学习生活的概况</view>
+  </view>
+  <view class="page__hd" wx:else>
+    <view class="page__title">2020-2021学年秋季学期</view>
+		<view class="page__desc">该学期的学习生活概况</view>
+  </view>
+  <view wx:if="{{false}}">
+    <view class="page__bd">
+      <view class="weui-form-preview">
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">姓名</label>
+            <em class="weui-form-preview__value">李xx</em>
+          </view>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">所修学分</label>
+            <text class="weui-form-preview__value">135.5</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">修完的课程数</label>
+            <text class="weui-form-preview__value">62</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">未通过课程数</label>
+            <text class="weui-form-preview__value">0</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">总学分积</label>
+            <text class="weui-form-preview__value">89.67</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">总绩点</label>
+            <text class="weui-form-preview__value">3.85</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">学期数</label>
+            <text class="weui-form-preview__value">5</text>
+          </view>
+        </view>
+        <view class="weui-form-preview__ft">
+          <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+        </view>
+      </view>
+    </view>
+
+    <view class="page__bd">
+      <view class="weui-cells__title">每个学期的情况</view>
+      <view class="weui-cells demo_badge_cells">
+        <view class="weui-cell weui-cell_active weui-cell_access">
+          <view class="weui-cell__bd">
+            <text class="demo_badge_title">2021-2022学年 秋季学期</text>
+          </view>
+          <view class="weui-cell__ft"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:else>
+    <view class="page__bd">
+      <view class="weui-form-preview">
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">姓名</label>
+            <em class="weui-form-preview__value">李xx</em>
+          </view>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">所修学分</label>
+            <text class="weui-form-preview__value">32.5</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">修完的课程数</label>
+            <text class="weui-form-preview__value">10</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">未通过课程数</label>
+            <text class="weui-form-preview__value">0</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">学期学分积</label>
+            <text class="weui-form-preview__value">92.85</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">学期绩点</label>
+            <text class="weui-form-preview__value">3.95</text>
+          </view>
+        </view>
+        <view class="weui-form-preview__ft">
+          <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+        </view>
+      </view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-panel">
+			<view class="weui-panel__hd">各课程情况</view>
+			<view class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">计算机网络</h4>
+					<view class="weui-media-box__desc">专业核心课程</view>
+					<view class="weui-media-box__info">
+						<view class="weui-media-box__info__meta">最终成绩 92.5</view>
+						<view class="weui-media-box__info__meta">2 学分</view>
+						<view class="weui-media-box__info__meta weui-media-box__info__meta_extra">绩点 3.9</view>
+					</view>
+				</view>
+			</view>
+		  </view>
+    </view>
+  </view>
+
+
+</view>

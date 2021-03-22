@@ -33,3 +33,13 @@ export const getProfile = () => {
     data: {}
   })
 }
+
+export const attachRole = (userRole) => {
+  return request({
+    url: "/permission/role/user/",
+    method: "post",
+    data: {
+      userRole
+    }
+  })
+}

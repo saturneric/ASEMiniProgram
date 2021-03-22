@@ -12,6 +12,7 @@ App({
   globalData: {
     userInfo: null,
     userBaseInfo: null,
+    userDocument: null,
     loginTime: null,
     login: false,
     loginCallback: null,

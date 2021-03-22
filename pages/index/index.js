@@ -10,12 +10,14 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    userDocument: {},
     hasUserInfo: false,
     canIUse: true,
     loading: true,
     unrecoverable: false,
     refresh: false,
     unrecoverableInfo: '',
+    
   },
   handleLogin() {
     return new Promise((resolve, reject) => {
@@ -145,13 +147,17 @@ Page({
       return Promise.resolve(this.data.hasUserInfo)
 
     }).then((res) => {
-      console.log(app.globalData)
       // 获取与用户关联的档案
       return getDocument(app.globalData.userBaseInfo.openid).then(res => {
         console.log(res)
         if(res === null) {
           wx.navigateTo({
             url: '../bind-document/bind-document'
+          })
+        } else {
+          app.globalData.userDocument = res
+          this.setData({
+            userDocument: app.globalData.userDocument
           })
         }
       })
@@ -194,5 +200,41 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+  bindAccountDocInfo() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/account-doc-info/account-doc-info'  
+    })
+  },
+  bindAccountRelationInfo() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/account-relation-info/account-relation-info'  
+    })
+  },
+  bindMyGrade() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/my-grade/my-grade'  
+    })
+  },
+  bindChildSupervisor() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/child-supervisor/child-supervisor'  
+    })
+  },
+  bindAnnouncement() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/announcement/announcement'  
+    })
+  },
+  bindMessage() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/message/message'  
+    })
+  },
 })

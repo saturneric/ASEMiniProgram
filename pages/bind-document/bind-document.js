@@ -1,6 +1,7 @@
 // pages/bind-document.js
 
-import {searchDocument} from '../../api/document'
+import {searchDocument, bindDocument} from '../../api/document'
+import {attachRole} from '../../api/user'
 
 Page({
 
@@ -18,8 +19,11 @@ Page({
     currentValue: '',
     document: null,
     showDocument: false,
+    toast: false,
+    hideToast: true,
     warnToast: false,
-    hideWarnToast: true
+    hideWarnToast: true,
+    warnText: '',
   },
 
   /**
@@ -99,7 +103,64 @@ Page({
   },
 
   onBind() {
-    
+    let userRoleName;
+    let documentCode = this.data.currentValue
+    switch(this.data.userRoleType) {
+      case '1':
+        userRoleName = 'Student'
+        break;
+      case '2':
+        userRoleName = 'Parent'
+        break;
+      case '3':
+        userRoleName = 'Supervisor'
+        break;
+    }
+    // 设置用户角色
+    attachRole(userRoleName).then(res => {
+      console.log(res)
+    }).then(() => {
+      // 执行绑定操作
+      return bindDocument(documentCode)
+    }).then(res => {
+      app.globalData.userDocument = res
+      this.setData({
+        toast: true
+      });
+      setTimeout(() => {
+          this.setData({
+              hideToast: true
+          });
+          setTimeout(() => {
+              this.setData({
+                  toast: false,
+                  hideToast: false,
+              });
+            // 绑定成功后，跳转进入小程序首页
+            wx.navigateTo({
+              url: '/pages/index/index'  
+            })
+          }, 300);
+      }, 2000);
+
+    }).catch(err =>{
+      console.log(err)
+      this.setData({
+        warnToast: true,
+        warnText: '绑定失败'
+      });
+      setTimeout(() => {
+        this.setData({
+            hidewarnToast: true,
+        });
+        setTimeout(() => {
+            this.setData({
+                warnToast: false,
+                hidewarnToast: false,
+            });
+        }, 300);
+      }, 3000);
+    })
   },
 
   onConfirm() {
@@ -154,18 +215,19 @@ Page({
     }).catch(err => {
       console.log(err)
       this.setData({
-        warnToast: true
+        warnToast: true,
+        warnText: '未找到对应档案'
       });
       setTimeout(() => {
-          this.setData({
-              hidewarnToast: true
-          });
-          setTimeout(() => {
-              this.setData({
-                  warnToast: false,
-                  hidewarnToast: false,
-              });
-          }, 300);
+        this.setData({
+            hidewarnToast: true,
+        });
+        setTimeout(() => {
+            this.setData({
+                warnToast: false,
+                hidewarnToast: false,
+            });
+        }, 300);
       }, 3000);
     })
   }

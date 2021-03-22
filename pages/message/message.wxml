@@ -1,0 +1,23 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd" wx:if="{{true}}">
+		<view class="page__title">收到的消息</view>
+		<view class="page__desc">一些发给我的消息</view>
+  </view>
+  <view class="page__bd" wx:if="{{true}}">
+      <view class="weui-panel">
+			<view class="weui-panel__hd">消息列表</view>
+			<view class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">学业警告通知</h4>
+					<view class="weui-media-box__desc">在2029-2020年秋季学期，你所修的学分总数低于15分。</view>
+					<view class="weui-media-box__info">
+						<view class="weui-media-box__info__meta">日期 2020-3-12</view>
+						<view class="weui-media-box__info__meta">发布人 教学办</view>
+						<view class="weui-media-box__info__meta weui-media-box__info__meta_extra">状态 已确认</view>
+					</view>
+				</view>
+			</view>
+		  </view>
+  </view>
+</view>
+

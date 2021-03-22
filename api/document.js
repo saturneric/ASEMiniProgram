@@ -20,3 +20,13 @@ export const searchDocument = (userRole, documentCode) => {
     }
   })
 }
+
+export const bindDocument = (documentCode) => {
+  return request({
+    url: "/document/bind",
+    method: "post",
+    data: {
+      documentCode
+    }
+  })
+}
