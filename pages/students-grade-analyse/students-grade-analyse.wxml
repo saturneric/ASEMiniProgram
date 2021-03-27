@@ -1,0 +1,75 @@
+<!--pages/students-grade-analyse/students-grade-analyse.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd" wx:if="{{true}}">
+		<view class="page__title">学生成绩分析</view>
+		<view class="page__desc">我管理的学生的学业成绩情况</view>
+  </view>
+  <view wx:if="{{true}}">
+    <view class="page__bd">
+      <view class="weui-form-preview">
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">学生总人数</label>
+            <em class="weui-form-preview__value">254</em>
+          </view>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">平均学分积</label>
+            <text class="weui-form-preview__value">75.6</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">平均绩点</label>
+            <text class="weui-form-preview__value">2.85</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">挂科记录数</label>
+            <text class="weui-form-preview__value">12</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">学期数</label>
+            <text class="weui-form-preview__value">5</text>
+          </view>
+        </view>
+        <view class="weui-form-preview__ft">
+          <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+        </view>
+      </view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-cells__title">功能</view>
+      <view class="weui-cells demo_badge_cells">
+        <view class="weui-cell weui-cell_active weui-cell_access">
+          <view class="weui-cell__bd">
+            <text class="demo_badge_title">需要关注的学生</text>
+          </view>
+          <view class="weui-cell__ft"></view>
+        </view>
+      </view>
+    </view>
+    <view class="page__bd">
+      <view class="weui-cells__title">学期概况</view>
+      <view class="weui-cells demo_badge_cells">
+        <view class="weui-cell weui-cell_active weui-cell_access">
+          <view class="weui-cell__bd">
+            <text class="demo_badge_title">2019-2020学年春季学期</text>
+          </view>
+          <view class="weui-cell__ft"></view>
+        </view>
+        <view class="weui-cell weui-cell_active weui-cell_access">
+          <view class="weui-cell__bd">
+            <text class="demo_badge_title">2020-2021学年秋季学期</text>
+          </view>
+          <view class="weui-cell__ft"></view>
+        </view>
+        <view class="weui-cell weui-cell_active weui-cell_access">
+          <view class="weui-cell__bd">
+            <text class="demo_badge_title">2020-2021学年春季学期</text>
+          </view>
+          <view class="weui-cell__ft"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+

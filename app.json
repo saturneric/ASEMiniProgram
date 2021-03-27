@@ -9,7 +9,11 @@
     "pages/my-grade/my-grade",
     "pages/child-supervisor/child-supervisor",
     "pages/announcement/announcement",
-    "pages/message/message"
+    "pages/message/message",
+    "pages/my-students/my-students",
+    "pages/students-grade-analyse/students-grade-analyse",
+    "pages/my-health/my-health",
+    "pages/my-honors/my-honors"
   ],
   "window": {
     "backgroundTextStyle": "light",

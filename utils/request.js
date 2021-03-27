@@ -14,11 +14,9 @@ const refresh_token = app => {
       method: 'get'
     }).then(res => {
       // 设置登录信息
-      const userInfo = app.globalData.userInfo
-      userInfo.token = res.token
+      app.globalData.userBaseInfo.token = res.token
       resolve(true)
     }).catch(err => {
-      console.log(err)
       // 清空登录信息
       app.globalData.login = false
       app.globalData.userInfo = {}

@@ -3,6 +3,8 @@
 import {searchDocument, bindDocument} from '../../api/document'
 import {attachRole} from '../../api/user'
 
+const app = getApp()
+
 Page({
 
   /**
@@ -136,12 +138,12 @@ Page({
                   toast: false,
                   hideToast: false,
               });
-            // 绑定成功后，跳转进入小程序首页
-            wx.navigateTo({
-              url: '/pages/index/index'  
-            })
+              // 绑定成功后，跳转进入小程序首页
+              wx.navigateTo({
+                url: '/pages/index/index'  
+              })
           }, 300);
-      }, 2000);
+      }, 3000);
 
     }).catch(err =>{
       console.log(err)

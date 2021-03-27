@@ -30,3 +30,57 @@ export const bindDocument = (documentCode) => {
     }
   })
 }
+
+export const checkParents = () => {
+  return request({
+    url: "/document/parents/check",
+    method: "get",
+    data: {
+    }
+  })
+}
+
+export const getParents = () => {
+  return request({
+    url: "/document/parents",
+    method: "get",
+    data: {
+    }
+  })
+}
+
+export const checkChildren = () => {
+  return request({
+    url: "/document/children/check",
+    method: "get",
+    data: {
+    }
+  })
+}
+
+export const getChildren = () => {
+  return request({
+    url: "/document/children",
+    method: "get",
+    data: {
+    }
+  })
+}
+
+export const checkSupervisors = () => {
+  return request({
+    url: "/document/supervisors/check",
+    method: "get",
+    data: {
+    }
+  })
+}
+
+export const getSupervisors = () => {
+  return request({
+    url: "/document/supervisors",
+    method: "get",
+    data: {
+    }
+  })
+}

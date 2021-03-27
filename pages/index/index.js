@@ -2,6 +2,7 @@
 
 import {getDocument} from '../../api/document'
 import {login, checkProfile, setProfile, getProfile} from '../../api/user'
+import {getSupervisorsProfile, getChildrenProfile} from '../../api/account'
 
 // 获取应用实例
 const app = getApp()
@@ -17,6 +18,8 @@ Page({
     unrecoverable: false,
     refresh: false,
     unrecoverableInfo: '',
+    childrenInfo: [],
+    supervisorsInfo: []
     
   },
   handleLogin() {
@@ -161,7 +164,24 @@ Page({
           })
         }
       })
+    }).then(res => {
+      return getChildrenProfile()
+    }).then(res => {
+      this.setData({
+        childrenInfo: res
+      })
+    }).then(res => {
+      return getSupervisorsProfile()
+    }).then(res => {
+      this.setData({
+        supervisorsInfo: res
+      })
     }).catch(err => {
+      console.log(err)
+      this.setData({
+        loading: false,
+        unrecoverable: true
+      })
       console.log("账户基本信息未设置")
     }).finally(() => {
       this.setData({
@@ -235,6 +255,30 @@ Page({
     // 跳转
     wx.navigateTo({
       url: '/pages/message/message'  
+    })
+  },
+  bindMyStudents() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/my-students/my-students'  
+    })
+  },
+  bindStudentsGradeAnalyse() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/students-grade-analyse/students-grade-analyse'  
+    })
+  },
+  bindMyHealth() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/my-health/my-health'  
+    })
+  },
+  bindMyHonors() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/my-honors/my-honors'  
     })
   },
 })

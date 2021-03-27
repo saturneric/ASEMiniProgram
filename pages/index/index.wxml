@@ -29,24 +29,24 @@
 		</view>
 		<view class="weui-cells__title">功能</view>
 		<view class="weui-cells demo_badge_cells">
-			<view class="weui-cell weui-cell_active">
+			<view class="weui-cell weui-cell_active" wx:for="{{childrenInfo}}" wx:key="{{index}}">
 				<view class="weui-cell__hd">
-					<image src="../../images/pic_160.png"></image>
+					<image src="{{item.avatarUrl}}"></image>
 					<text class="weui-badge">8</text>
 				</view>
 				<view class="weui-cell__bd">
-					<view>我的孩子</view>
-					<view class="demo_badge_desc">摘要信息</view>
+					<view>{{item.nickName}}</view>
+					<view class="demo_badge_desc">我的孩子</view>
 				</view>
       </view>
-      <view class="weui-cell weui-cell_active" bindtap="bindChildSupervisor">
+      <view class="weui-cell weui-cell_active" bindtap="bindChildSupervisor" wx:for="{{supervisorsInfo}}" wx:key="{{index}}">
 				<view class="weui-cell__hd">
-					<image src="../../images/pic_160.png"></image>
+					<image src="{{item.avatarUrl}}"></image>
 					<text class="weui-badge">8</text>
 				</view>
 				<view class="weui-cell__bd">
-					<view>孩子的辅导员</view>
-					<view class="demo_badge_desc">摘要信息</view>
+					<view>{{item.nickName}}</view>
+					<view class="demo_badge_desc">孩子的辅导员</view>
 				</view>
       </view>
       <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindAnnouncement">
@@ -77,30 +77,30 @@
 				</view>
 				<view class="weui-cell__ft"></view>
       </view>
-      <view class="weui-cell weui-cell_active weui-cell_access">
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyHonors">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">我的荣誉</text>
 					<text class="weui-badge">New</text>
 				</view>
 				<view class="weui-cell__ft"></view>
       </view>
-      <view class="weui-cell weui-cell_active weui-cell_access">
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyHealth">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">我的健康</text>
 					<text class="weui-badge">New</text>
 				</view>
 				<view class="weui-cell__ft"></view>
       </view>
-      <view class="weui-cell weui-cell_active weui-cell_access">
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyStudents">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">我的学生</text>
 					<text class="weui-badge">New</text>
 				</view>
 				<view class="weui-cell__ft"></view>
       </view>
-      <view class="weui-cell weui-cell_active weui-cell_access">
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindStudentsGradeAnalyse">
 				<view class="weui-cell__bd">
-					<text class="demo_badge_title">学生的成绩</text>
+					<text class="demo_badge_title">学生成绩分析</text>
 					<text class="weui-badge">New</text>
 				</view>
 				<view class="weui-cell__ft"></view>
@@ -113,6 +113,6 @@
   </view>
 
   <i-spin size="large" fix wx:if="{{ loading }}"></i-spin>
-  <i-spin size="large" fix wx:if="{{ unrecoverable }}" custom><view>您的账号已被封禁</view></i-spin>
+  <i-spin size="large" fix wx:if="{{ unrecoverable }}" custom><view>您的账号不被允许使用服务</view></i-spin>
   
 </view>

@@ -1,0 +1,8 @@
+<!--pages/my-health/my-health.wxml-->
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd">
+		<view class="page__title">我的健康</view>
+		<view class="page__desc">我今日的健康信息</view>
+  </view>
+
+</view>
