@@ -29,7 +29,7 @@
 		</view>
 		<view class="weui-cells__title">功能</view>
 		<view class="weui-cells demo_badge_cells">
-			<view class="weui-cell weui-cell_active" wx:for="{{childrenInfo}}" wx:key="{{index}}">
+			<view class="weui-cell weui-cell_active" wx:for="{{childrenInfo}}" wx:key="index">
 				<view class="weui-cell__hd">
 					<image src="{{item.avatarUrl}}"></image>
 					<text class="weui-badge">8</text>
@@ -39,7 +39,7 @@
 					<view class="demo_badge_desc">我的孩子</view>
 				</view>
       </view>
-      <view class="weui-cell weui-cell_active" bindtap="bindChildSupervisor" wx:for="{{supervisorsInfo}}" wx:key="{{index}}">
+      <view class="weui-cell weui-cell_active" bindtap="bindChildSupervisor" wx:for="{{supervisorsInfo}}" wx:key="index">
 				<view class="weui-cell__hd">
 					<image src="{{item.avatarUrl}}"></image>
 					<text class="weui-badge">8</text>

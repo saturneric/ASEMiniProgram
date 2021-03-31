@@ -1,18 +1,27 @@
 // pages/announcement/announcement.js
+import {getNotificationNow} from '../../api/notification'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    notificationsInfo: [],
+    showNotification: false,
+    showIndex: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    getNotificationNow().then(res => {
+      console.log(res)
+      this.setData({
+        notificationsInfo: res
+      })
+    })
   },
 
   /**
@@ -62,5 +71,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onClickNotification(e) {
+    this.setData({
+      showNotification: true,
+      showIndex: e.currentTarget.dataset['index']
+    })
+  },
+  showNotificationsList(e) {
+    this.setData({
+      showNotification: false,
+      showIndex: 0
+    })
   }
 })
