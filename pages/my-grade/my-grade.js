@@ -22,9 +22,16 @@ Page({
   onLoad: function (options) {
     getGrade().then(res => {
       console.log(res)
-      this.setData({
+      if(res.failedCourse === 0 && res.passedCourse === 0) {
+        this.setData({
+          recordNotFound: true
+        })
+      }
+      else {
+        this.setData({
         gradeInfo: res
-      })
+        })
+      }
     }).then(res => {
       return getSemesters().then(res => {
         console.log(res)

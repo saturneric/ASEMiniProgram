@@ -84,3 +84,13 @@ export const getSupervisors = () => {
     }
   })
 }
+
+export const searchStudents = (numbering) => {
+  return request({
+    url: "/document/students/search",
+    method: "get",
+    data: {
+      numbering
+    }
+  })
+}

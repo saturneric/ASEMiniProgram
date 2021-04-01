@@ -1,11 +1,14 @@
 // pages/my-student/my-students.js
+import {searchStudents} from '../../api/document'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    inputShowed: false,
+    inputVal: ""
   },
 
   /**
@@ -62,5 +65,34 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  showInput: function () {
+    this.setData({
+        inputShowed: true
+    });
+  }, 
+
+  hideInput: function () {
+    this.setData({
+        inputVal: "",
+        inputShowed: false
+    });
+  },
+
+  clearInput: function () {
+    this.setData({
+        inputVal: ""
+    });
+  },
+
+  inputTyping: function (e) {
+    let inputVal = e.detail.value
+    this.setData({
+        inputVal
+    });
+    searchStudents(inputVal).then(res => {
+      console.log(res)
+    })
   }
 })

@@ -119,5 +119,7 @@
     </view>
   </view>
 
+  <i-spin size="large" fix wx:if="{{ recordNotFound }}" custom><view>未找到您的成绩记录</view></i-spin>
+
 
 </view>
