@@ -1,4 +1,6 @@
 // pages/account-doc-info/account-doc-info.js
+import {getUserProfileSupervisor} from '../../api/document'
+
 const app = getApp()
 Page({
 
@@ -10,36 +12,51 @@ Page({
     hasUserDocument: false,
     userInfo: null,
     userDocuement: null,
+    admin: false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    if(app.globalData.userInfo){
-      let userInfo = app.globalData.userInfo
-
-      this.setData({
-        hasUserInfo: true,
-        userInfo: userInfo
+    console.log(options)
+    if(options.admin === "true") {
+      const eventChannel = this.getOpenerEventChannel()
+      let that = this
+      eventChannel.on('acceptDataFromOpenerPage', function(data) {
+        console.log(data)
+        that.setData({
+          hasUserInfo: false,
+          userInfo: {}
+        })
+        that.setUserDocument(data.userDocument)
+        if(data.userDocument.connected) {
+          getUserProfileSupervisor(data.userDocument.id).then(res => {
+            console.log(res)
+            that.setData({
+              hasUserInfo: true,
+              userInfo: res
+            })
+          })
+        }
       })
+    } else {
+      if(app.globalData.userInfo){
+
+        this.setData({
+          hasUserInfo: true,
+          userInfo: app.globalData.userInfo
+        })
+      }
+      if(app.globalData.userDocument){
+        this.setUserDocument(app.globalData.userDocument)
+      }
     }
-    if(app.globalData.userDocument){
-      let userDocument = app.globalData.userDocument
+  },
+
+  setUserDocument(document) {
+
+      let userDocument = document
       switch(userDocument.gender) {
         case 'F':
           userDocument.gender = '女'
@@ -66,7 +83,21 @@ Page({
         hasUserDocument: true,
         userDocument: userDocument
       })
-    }
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
   },
 
   /**

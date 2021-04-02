@@ -94,3 +94,13 @@ export const searchStudents = (numbering) => {
     }
   })
 }
+
+export const getUserProfileSupervisor = (documentId) => {
+  return request({
+    url: "/document/profile/supervisor",
+    method: "get",
+    data: {
+      documentId
+    }
+  })
+}
