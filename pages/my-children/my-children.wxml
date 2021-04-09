@@ -1,0 +1,29 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd" wx:if="{{!showMessage}}">
+		<view class="page__title">我的孩子</view>
+		<view class="page__desc">我的孩子的一些信息</view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-cells__title">可查看的项目</view>
+		<view class="weui-cells">
+			<view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindHealthInfo">
+        <view class="weui-cell__bd">孩子的健康</view>
+        <view class="weui-cell__ft" style="font-size: 0;">
+					<text class="demo_badge_tips">详细信息</text>
+				</view>
+      </view>
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindHonorsInfo">
+				<view class="weui-cell__bd">孩子的荣誉</view>
+				<view class="weui-cell__ft" style="font-size: 0;">
+					<text class="demo_badge_tips">详细信息</text>
+				</view>
+			</view>
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindCoursesInfo">
+				<view class="weui-cell__bd">孩子的成绩</view>
+				<view class="weui-cell__ft" style="font-size: 0;">
+					<text class="demo_badge_tips">详细信息</text>
+				</view>
+			</view>
+		</view>
+  </view>
+</view>
