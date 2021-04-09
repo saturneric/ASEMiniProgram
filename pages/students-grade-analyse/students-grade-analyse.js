@@ -1,18 +1,25 @@
 // pages/students-grade-analyse/students-grade-analyse.js
+import {getStudentsGrade} from '../../api/course'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    studentsGradeInfo: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    getStudentsGrade().then(res =>{
+      console.log(res)
+      this.setData({
+        studentsGradeInfo: res
+      })
+    })
   },
 
   /**

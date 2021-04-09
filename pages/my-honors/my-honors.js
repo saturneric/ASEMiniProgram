@@ -19,23 +19,37 @@ Page({
     honorTitle: "",
     toast: false,
     hideToast: true,
+    isParent: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userDocument: app.globalData.userDocument
-    })
-    console.log(this.data)
-    getHonors(app.globalData.userBaseInfo.openid)
-    .then(res => {
-      console.log(res)
+    if(options.isParent === 'true') {
       this.setData({
-        honorsInfo: res
+        isParent: true
       })
-    })
+      getHonors(options.openid)
+      .then(res => {
+        console.log(res)
+        this.setData({
+          honorsInfo: res
+        })
+      })
+    } else {
+      this.setData({
+        userDocument: app.globalData.userDocument
+      })
+      console.log(this.data)
+      getHonors(app.globalData.userBaseInfo.openid)
+      .then(res => {
+        console.log(res)
+        this.setData({
+          honorsInfo: res
+        })
+      })
+    }
   },
 
   /**

@@ -39,3 +39,42 @@ export const getCourseGrades = (semester_id) => {
     }
   })
 }
+
+export const getStudentsGrade = () => {
+  return request({
+    url: "/course/grade/students",
+    method: "get",
+    data: {}
+  })
+}
+
+export const getGradeForParent = (openid) => {
+  return request({
+    url: "/course/grade/parent",
+    method: "get",
+    data: {
+      openid
+    }
+  })
+}
+
+export const getSemestersForParent = (openid) => {
+  return request({
+    url: "/course/semesters/parent",
+    method: "get",
+    data: {
+      openid
+    }
+  })
+}
+
+export const getSemesterGradesForParent = (openid, semester_id) => {
+  return request({
+    url: "/course/grade/semester/parent",
+    method: "get",
+    data: {
+      openid,
+      semesterId: semester_id
+    }
+  })
+}

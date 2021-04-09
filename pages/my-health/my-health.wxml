@@ -1,8 +1,50 @@
 <!--pages/my-health/my-health.wxml-->
 <view class="page" data-weui-theme="{{theme}}">
   <view class="page__hd">
-		<view class="page__title">我的健康</view>
-		<view class="page__desc">我今日的健康信息</view>
+    <view class="page__title" wx:if="{{isParent}}">孩子的健康</view>
+		<view class="page__title" wx:else>我的健康</view>
+		<view class="page__desc">微信运动健康信息</view>
   </view>
-
+  <view class="page__bd">
+    <view class="page__bd">
+      <view class="weui-form-preview">
+        <view class="weui-form-preview__hd">
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">姓名</label>
+            <em class="weui-form-preview__value">{{stepsInfo.realName}}</em>
+          </view>
+        </view>
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">我的步数</label>
+            <text class="weui-form-preview__value">{{stepsInfo.count}}</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">记录时间</label>
+            <text class="weui-form-preview__value">{{stepsInfo.updateTime}}</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">平均步数</label>
+            <text class="weui-form-preview__value">{{stepsInfo.averageSteps}}</text>
+          </view>
+          <view class="weui-form-preview__item">
+            <label class="weui-form-preview__label">记录个数</label>
+            <text class="weui-form-preview__value">{{stepsInfo.recordCount}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-panel">
+			<view class="weui-panel__hd">健康记录列表</view>
+			<view class="weui-panel__bd"  wx:for="{{monthStepsInfo}}" wx:key="index" data-index="{{index}}">
+				<view class="weui-media-box weui-media-box_text">
+					<h4 class="weui-media-box__title">记录时间 {{item.timestamp}}</h4>
+					<view class="weui-media-box__info">
+						<view class="weui-media-box__info__meta">步数 {{item.step}}</view>
+					</view>
+				</view>
+			</view>
+		</view>
+  </view>
+  <i-spin size="large" fix wx:if="{{ recordNotFound }}" custom><view>未找到健康记录</view></i-spin>
 </view>

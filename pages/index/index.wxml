@@ -32,9 +32,8 @@
 			<view class="weui-cell weui-cell_active" wx:for="{{childrenInfo}}" wx:key="index">
 				<view class="weui-cell__hd">
 					<image src="{{item.avatarUrl}}"></image>
-					<text class="weui-badge">8</text>
 				</view>
-				<view class="weui-cell__bd">
+				<view class="weui-cell__bd" bindtap="bindMyChildren" data-index="{{item.openid}}">
 					<view>{{item.nickName}}</view>
 					<view class="demo_badge_desc">我的孩子</view>
 				</view>
@@ -42,7 +41,6 @@
       <view class="weui-cell weui-cell_active" bindtap="bindChildSupervisor" wx:for="{{supervisorsInfo}}" wx:key="index">
 				<view class="weui-cell__hd">
 					<image src="{{item.avatarUrl}}"></image>
-					<text class="weui-badge">8</text>
 				</view>
 				<view class="weui-cell__bd">
 					<view>{{item.nickName}}</view>
@@ -63,42 +61,42 @@
 				</view>
 				<view class="weui-cell__ft"></view>
 			</view>
-			<view class="weui-cell weui-cell_active weui-cell_access">
+			<view class="weui-cell weui-cell_active weui-cell_access" wx:if="{{userDocument.role === 'ROLE_PARENT'}}">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">问答机器人</text>
 					<text class="weui-badge">8</text>
 				</view>
 				<view class="weui-cell__ft">详细信息</view>
 			</view>
-			<view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyGrade">
+			<view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyGrade" wx:if="{{userDocument.role === 'ROLE_STUDENT'}}">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">我的成绩</text>
 					<text class="weui-badge">New</text>
 				</view>
 				<view class="weui-cell__ft"></view>
       </view>
-      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyHonors">
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyHonors" wx:if="{{userDocument.role === 'ROLE_STUDENT'}}">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">我的荣誉</text>
 					<text class="weui-badge">New</text>
 				</view>
 				<view class="weui-cell__ft"></view>
       </view>
-      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyHealth">
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyHealth" wx:if="{{userDocument.role === 'ROLE_STUDENT'}}">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">我的健康</text>
 					<text class="weui-badge">New</text>
 				</view>
 				<view class="weui-cell__ft"></view>
       </view>
-      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyStudents">
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMyStudents" wx:if="{{userDocument.role === 'ROLE_SUPERVISOR'}}">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">我的学生</text>
 					<text class="weui-badge">New</text>
 				</view>
 				<view class="weui-cell__ft"></view>
       </view>
-      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindStudentsGradeAnalyse">
+      <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindStudentsGradeAnalyse" wx:if="{{userDocument.role === 'ROLE_SUPERVISOR'}}">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">学生成绩分析</text>
 					<text class="weui-badge">New</text>

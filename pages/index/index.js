@@ -281,4 +281,11 @@ Page({
       url: '/pages/my-honors/my-honors'  
     })
   },
+  bindMyChildren(e) {
+    let query = e.currentTarget.dataset['index']
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/my-children/my-children?openid=' + query
+    })
+  }
 })

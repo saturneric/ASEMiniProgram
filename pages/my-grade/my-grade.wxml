@@ -1,8 +1,10 @@
 <!--pages/my-grade/my-grade.wxml-->
 <view class="page" data-weui-theme="{{theme}}">
   <view class="page__hd" wx:if="{{!showSemester}}">
-		<view class="page__title">我的成绩</view>
-		<view class="page__desc">我在学校学习生活的概况</view>
+    <view class="page__title" wx:if="{{!isParent}}">我的成绩</view>
+		<view class="page__title" wx:else>孩子的成绩</view>
+    <view class="page__desc" wx:if="{{!isParent}}">我在学校学习生活的概况</view>
+    <view class="page__desc" wx:else>孩子在学校学习生活的概况</view>
   </view>
   <view class="page__hd" wx:else>
     <view class="page__title">{{targetSemesterInfo.semester}}</view>
@@ -119,7 +121,7 @@
     </view>
   </view>
 
-  <i-spin size="large" fix wx:if="{{ recordNotFound }}" custom><view>未找到您的成绩记录</view></i-spin>
+  <i-spin size="large" fix wx:if="{{ recordNotFound }}" custom><view>未找到成绩记录</view></i-spin>
 
 
 </view>

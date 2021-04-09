@@ -13,7 +13,9 @@
     "pages/my-students/my-students",
     "pages/students-grade-analyse/students-grade-analyse",
     "pages/my-health/my-health",
-    "pages/my-honors/my-honors"
+    "pages/my-honors/my-honors",
+    "pages/robot/robot",
+    "pages/my-children/my-children"
   ],
   "window": {
     "backgroundTextStyle": "light",

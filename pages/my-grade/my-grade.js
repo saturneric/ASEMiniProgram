@@ -1,6 +1,6 @@
 // pages/my-grade/my-grade.js
 
-import {getGrade, getSemesters, getSemesterGrades, getCourseGrades} from '../../api/course'
+import {getGrade, getSemesters, getSemesterGrades, getCourseGrades, getGradeForParent, getSemestersForParent, getSemesterGradesForParent} from '../../api/course'
 
 Page({
 
@@ -13,6 +13,7 @@ Page({
     showSemester: false,
     targetSemesterInfo: {},
     targetCoursesInfo: [],
+    targetOpenid: '',
     showIndex: 0
   },
 
@@ -20,28 +21,56 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    getGrade().then(res => {
-      console.log(res)
-      if(res.failedCourse === 0 && res.passedCourse === 0) {
-        this.setData({
-          recordNotFound: true
-        })
-      }
-      else {
-        this.setData({
-        gradeInfo: res
-        })
-      }
-    }).then(res => {
-      return getSemesters().then(res => {
+    if(options.isParent === 'true') {
+      this.setData({
+        isParent: true,
+        targetOpenid: options.openid
+      })
+      getGradeForParent(options.openid).then(res => {
         console.log(res)
-        this.setData({
-          semestersInfo: res
+        if(res.failedCourse === 0 && res.passedCourse === 0) {
+          this.setData({
+            recordNotFound: true
+          })
+        }
+        else {
+          this.setData({
+          gradeInfo: res
+          })
+        }
+      }).then(res => {
+        return getSemestersForParent(options.openid).then(res => {
+          console.log(res)
+          this.setData({
+            semestersInfo: res
+          })
         })
       })
-    }).catch(err => {
-      console.log(err)
-    })
+    } else {
+      getGrade().then(res => {
+        console.log(res)
+        if(res.failedCourse === 0 && res.passedCourse === 0) {
+          this.setData({
+            recordNotFound: true
+          })
+        }
+        else {
+          this.setData({
+          gradeInfo: res
+          })
+        }
+      }).then(res => {
+        return getSemesters().then(res => {
+          console.log(res)
+          this.setData({
+            semestersInfo: res
+          })
+        })
+      }).catch(err => {
+        console.log(err)
+      })
+    }
+
   },
 
   /**
@@ -104,23 +133,44 @@ Page({
   onClickSemesterItem(e) {
     let index = parseInt(e.currentTarget.dataset['index'])
 
-    getSemesterGrades(this.data.semestersInfo[index].id).then(res => {
-      console.log(res)
-      this.setData({
-        targetSemesterInfo: res
-      })
-      return Promise.resolve(this.data.semestersInfo[index].id)
-    }).then(sem_id => {
-      return getCourseGrades(sem_id).then(res => {
+    if(this.data.isParent) {
+      getSemesterGradesForParent(this.data.targetOpenid, this.data.semestersInfo[index].id).then(res => {
         console.log(res)
         this.setData({
-          targetCoursesInfo: res
+          targetSemesterInfo: res
+        })
+        return Promise.resolve(this.data.semestersInfo[index].id)
+      }).then(sem_id => {
+        return getCourseGrades(sem_id).then(res => {
+          console.log(res)
+          this.setData({
+            targetCoursesInfo: res
+          })
+        })
+      }).then(res => {
+        this.setData({
+          showSemester: true,
         })
       })
-    }).then(res => {
-      this.setData({
-        showSemester: true,
+    } else {
+      getSemesterGrades(this.data.semestersInfo[index].id).then(res => {
+        console.log(res)
+        this.setData({
+          targetSemesterInfo: res
+        })
+        return Promise.resolve(this.data.semestersInfo[index].id)
+      }).then(sem_id => {
+        return getCourseGrades(sem_id).then(res => {
+          console.log(res)
+          this.setData({
+            targetCoursesInfo: res
+          })
+        })
+      }).then(res => {
+        this.setData({
+          showSemester: true,
+        })
       })
-    })
+    }
   }
 })

@@ -1,6 +1,7 @@
 <view class="page" data-weui-theme="{{theme}}">
   <view class="page__hd" wx:if="{{!showHonor}}">
-		<view class="page__title">我的荣誉</view>
+		<view class="page__title" wx:if="{{!isParent}}">我的荣誉</view>
+		<view class="page__title" wx:else>孩子荣誉</view>
 		<view class="page__desc">科研竞赛社会工作等情况</view>
 	</view>
 	<view class="page__bd" wx:if="{{showCreate}}">
@@ -54,22 +55,18 @@
       <view class="weui-form-preview">
         <view class="weui-form-preview__hd">
           <view class="weui-form-preview__item">
-            <label class="weui-form-preview__label">姓名</label>
-            <em class="weui-form-preview__value">{{userDocument.realName}}</em>
+            <label class="weui-form-preview__label">荣誉数目</label>
+            <em class="weui-form-preview__value">{{honorsInfo.length}}</em>
           </view>
         </view>
         <view class="weui-form-preview__bd">
-          <view class="weui-form-preview__item">
-            <label class="weui-form-preview__label">荣誉数目</label>
-            <text class="weui-form-preview__value">{{honorsInfo.length}}</text>
-          </view>
           <view class="weui-form-preview__item">
             <label class="weui-form-preview__label">已认证荣誉数目</label>
             <text class="weui-form-preview__value">0</text>
           </view>
         </view>
         <view class="weui-form-preview__ft">
-          <a class="weui-form-preview__btn weui-form-preview__btn_primary" bindtap="onClickAdd">添加荣誉</a>
+          <a class="weui-form-preview__btn weui-form-preview__btn_primary" bindtap="onClickAdd" wx:if="{{!isParent}}">添加荣誉</a>
         </view>
       </view>
     </view>

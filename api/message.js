@@ -18,3 +18,24 @@ export const markMessage = (messageId) => {
     }
   })
 }
+
+export const createMessageAndSend = (openid, title, context) => {
+  return request({
+    url: "/message/",
+    method: "post",
+    data: {
+      title,
+      context
+    }
+  }).then(messageId => {
+    return request({
+      url: "/message/receiver",
+      method: "post",
+      data: {
+        messageId,
+        openid
+      }
+    })
+  })
+}
+
