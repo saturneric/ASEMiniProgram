@@ -50,7 +50,6 @@
       <view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindAnnouncement">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">公告通知</text>
-					<text class="weui-badge">4</text>
 				</view>
 				<view class="weui-cell__ft"></view>
 			</view>
@@ -64,7 +63,6 @@
 			<view class="weui-cell weui-cell_active weui-cell_access" wx:if="{{userDocument.role === 'ROLE_PARENT'}}">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">问答机器人</text>
-					<text class="weui-badge">8</text>
 				</view>
 				<view class="weui-cell__ft">详细信息</view>
 			</view>

@@ -78,3 +78,32 @@ export const getSemesterGradesForParent = (openid, semester_id) => {
     }
   })
 }
+
+export const getStudentsGradeBySemesterAndUser = (semesterId) => {
+  return request({
+    url: "/course/grade/students/semester",
+    method: "get",
+    data: {
+      semesterId
+    }
+  })
+}
+
+export const getStudentWeightedAveragesSemesterValues = (openid) => {
+  return request({
+    url: "/course/students/semesters",
+    method: "get",
+    data: {
+      openid,
+    }
+  })
+}
+
+export const getStudentMaybeInDanger = () => {
+  return request({
+    url: "/course/students/danger",
+    method: "get",
+    data: {
+    }
+  })
+}

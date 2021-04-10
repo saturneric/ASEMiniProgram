@@ -1,5 +1,5 @@
 // pages/students-grade-analyse/students-grade-analyse.js
-import {getStudentsGrade} from '../../api/course'
+import {getStudentsGrade, getStudentsGradeBySemesterAndUser} from '../../api/course'
 
 Page({
 
@@ -7,7 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    studentsGradeInfo: {}
+    studentsGradeInfo: {},
+    studentsGradeSemesterInfo: {},
+    showSemester: false
   },
 
   /**
@@ -69,5 +71,35 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onClickGradeTrend() {
+    wx.navigateTo({
+      url: '/pages/student-grade-trend/student-grade-trend'
+    })
+  },
+
+  onClickStudentConerning() {
+    wx.navigateTo({
+      url: '/pages/student-need-concerning/student-need-concerning'
+    })
+  },
+
+  onClickShowSemester(e) {
+    const targetIndex = e.currentTarget.dataset['index'];
+    console.log(targetIndex)
+    getStudentsGradeBySemesterAndUser(targetIndex).then(res => {
+        console.log(res)
+        this.setData({
+          studentsGradeSemesterInfo: res,
+          showSemester: true
+        })
+    })
+  },
+
+  onClickBack() {
+    this.setData({
+      showSemester: false
+    })
   }
 })

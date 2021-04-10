@@ -1,0 +1,10 @@
+/* pages/student-grade-trend/student-grade-trend.wxss */
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.graph {
+  width: 750rpx;
+  height: 300px;
+}

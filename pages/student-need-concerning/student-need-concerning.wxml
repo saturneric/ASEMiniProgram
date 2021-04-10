@@ -1,0 +1,24 @@
+<view class="page" data-weui-theme="{{theme}}">
+  <view class="page__hd">
+		<view class="page__title">需要关注的学生</view>
+		<view class="page__desc">成绩波动幅度较大的学生</view>
+	</view>
+  <view class="page__bd" wx:if="{{!showMessage}}" >
+		<view class="weui-panel weui-panel_access" wx:for="{{studentsList}}" wx:key="index">
+			<view class="weui-panel__hd">{{item.realName}} {{item.numbering}}</view>
+			<view class="weui-panel__bd">
+				<view class="weui-media-box weui-media-box_text" wx:for="{{item.infos}}" wx:key="index">
+					<h4 class="weui-media-box__title">{{item.semesterItem.startYear}}-{{item.semesterItem.endYear}}年{{item.semesterItem.springAutumn ? '春' : '秋'}}季学期</h4>
+					<view class="weui-media-box__desc">学分绩较上学期的波动幅度为{{item.value}}</view>
+				</view>
+			</view>
+			<view class="weui-panel__ft">
+				<a class="weui-cell weui-cell_active weui-cell_access weui-cell_link">
+					<view class="weui-cell__bd">查看更多</view>
+					<text class="weui-cell__ft"></text>
+				</a>
+			</view>
+		</view>
+	</view>
+</view>
+
