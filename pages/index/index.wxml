@@ -56,11 +56,10 @@
 			<view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindMessage">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">收到的消息</text>
-					<text class="weui-badge">32</text>
 				</view>
 				<view class="weui-cell__ft"></view>
 			</view>
-			<view class="weui-cell weui-cell_active weui-cell_access" wx:if="{{userDocument.role === 'ROLE_PARENT'}}">
+			<view class="weui-cell weui-cell_active weui-cell_access" bindtap="bindRobot" wx:if="{{userDocument.role === 'ROLE_PARENT'}}">
 				<view class="weui-cell__bd">
 					<text class="demo_badge_title">问答机器人</text>
 				</view>

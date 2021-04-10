@@ -9,7 +9,8 @@ Page({
   data: {
     parentsInfo: [],
     childrenInfo: [],
-    supervisorsInfo: []
+    supervisorsInfo: [],
+    noRecord: false
   },
 
   /**
@@ -60,6 +61,12 @@ Page({
           supervisorsInfo: res
         })
       })
+    }).finally(res => {
+      if(this.data.supervisorsInfo.length === 0 && this.data.childrenInfo.length === 0 && this.data.parentsInfo.length === 0) {
+        this.setData({
+          noRecord: true
+        })
+      }
     })
   },
 
@@ -110,5 +117,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onClickQuestion() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/question/question'  
+    })
   }
 })

@@ -17,7 +17,8 @@
     "pages/robot/robot",
     "pages/my-children/my-children",
     "pages/student-grade-trend/student-grade-trend",
-    "pages/student-need-concerning/student-need-concerning"
+    "pages/student-need-concerning/student-need-concerning",
+    "pages/question/question"
   ],
   "window": {
     "backgroundTextStyle": "light",

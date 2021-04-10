@@ -133,5 +133,12 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onClickQuestion() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/question/question'  
+    })
   }
 })

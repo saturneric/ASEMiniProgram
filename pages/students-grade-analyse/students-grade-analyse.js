@@ -9,7 +9,8 @@ Page({
   data: {
     studentsGradeInfo: {},
     studentsGradeSemesterInfo: {},
-    showSemester: false
+    showSemester: false,
+    loading: true
   },
 
   /**
@@ -20,6 +21,10 @@ Page({
       console.log(res)
       this.setData({
         studentsGradeInfo: res
+      })
+    }).then(res => {
+      this.setData({
+        loading: false
       })
     })
   },
@@ -100,6 +105,13 @@ Page({
   onClickBack() {
     this.setData({
       showSemester: false
+    })
+  },
+
+  onClickQuestion() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/question/question'  
     })
   }
 })

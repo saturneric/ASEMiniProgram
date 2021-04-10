@@ -1,11 +1,17 @@
 // pages/robot/robot.js
+import {search} from '../../api/robot'
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    inputShowed: false,
+    inputVal: "",
+    searchStudentsList: [],
+    targetAnswer: {},
+    showAnswer: false
   },
 
   /**
@@ -62,5 +68,62 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  showInput: function () {
+    this.setData({
+        inputShowed: true
+    });
+  }, 
+
+  hideInput: function () {
+    this.setData({
+        inputVal: "",
+        inputShowed: false
+    });
+  },
+
+  clearInput: function () {
+    this.setData({
+        inputVal: ""
+    });
+  },
+
+  onClickShowDocument(e) {
+    let showIndex = e.currentTarget.dataset['index']
+    let targetAnswer = this.data.searchStudentsList[showIndex]
+    this.setData({
+      targetAnswer,
+      showAnswer: true
+    })
+  },
+
+  inputTyping: function (e) {
+    let inputVal = e.detail.value
+    this.setData({
+        inputVal
+    });
+    if(inputVal.length > 0) {
+      search(inputVal).then(res => {
+        console.log(res)
+        this.setData({
+          searchStudentsList: res
+        })
+      })
+    }
+  },
+
+  onClickBack() {
+    this.setData({
+      showAnswer: false,
+      targetAnswer: {}
+    })
+  },
+
+  onClickQuestion() {
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/question/question'  
+    })
   }
 })

@@ -22,9 +22,9 @@ Page({
     document: null,
     showDocument: false,
     toast: false,
-    hideToast: true,
+    hideToast: false,
     warnToast: false,
-    hideWarnToast: true,
+    hideWarnToast: false,
     warnText: '',
   },
 
@@ -138,27 +138,29 @@ Page({
                   toast: false,
                   hideToast: false,
               });
-              // 绑定成功后，跳转进入小程序首页
-              wx.navigateTo({
-                url: '/pages/index/index'  
-              })
           }, 300);
       }, 3000);
 
+    }).then(res => {
+      // 绑定成功后，跳转进入小程序首页
+      wx.navigateTo({
+        url: '/pages/index/index'  
+      })
     }).catch(err =>{
       console.log(err)
       this.setData({
         warnToast: true,
         warnText: '绑定失败'
-      });
+      })
+    }).then(res => {
       setTimeout(() => {
         this.setData({
-            hidewarnToast: true,
+            hideWarnToast: true,
         });
         setTimeout(() => {
             this.setData({
                 warnToast: false,
-                hidewarnToast: false,
+                hideWarnToast: false,
             });
         }, 300);
       }, 3000);
@@ -219,7 +221,8 @@ Page({
       this.setData({
         warnToast: true,
         warnText: '未找到对应档案'
-      });
+      })
+    }).then(res => {
       setTimeout(() => {
         this.setData({
             hidewarnToast: true,
@@ -227,7 +230,7 @@ Page({
         setTimeout(() => {
             this.setData({
                 warnToast: false,
-                hidewarnToast: false,
+                hideWarnToast: false,
             });
         }, 300);
       }, 3000);

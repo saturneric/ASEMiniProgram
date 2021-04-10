@@ -33,6 +33,6 @@
   </view>
   <view class="graph" wx:else>
     <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
-    <a class="weui-btn weui-btn_disabled weui-btn_default" bindtap="onClickBack">返回搜索</a>
+    <a class="weui-btn weui-btn_primary" bindtap="onClickBack">返回搜索</a>
   </view>
 </view>

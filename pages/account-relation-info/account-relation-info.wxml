@@ -35,7 +35,7 @@
         </view>
       </view>
       <view class="weui-form-preview__ft">
-        <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+        <a class="weui-form-preview__btn weui-form-preview__btn_primary" bindtap="onClickQuestion">反映问题</a>
       </view>
     </view>
   </view>
@@ -58,7 +58,7 @@
         </view>
       </view>
       <view class="weui-form-preview__ft">
-        <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+        <a class="weui-form-preview__btn weui-form-preview__btn_primary" bindtap="onClickQuestion">反映问题</a>
       </view>
     </view>
   </view>
@@ -93,9 +93,9 @@
         </view>
       </view>
       <view class="weui-form-preview__ft">
-        <a class="weui-form-preview__btn weui-form-preview__btn_primary">反映问题</a>
+        <a class="weui-form-preview__btn weui-form-preview__btn_primary" bindtap="onClickQuestion">反映问题</a>
       </view>
     </view>
   </view>
-  
+  <i-spin size="large" fix wx:if="{{ noRecord }}" custom><view>没有发现相关信息</view></i-spin>
 </view>

@@ -113,11 +113,13 @@ Page({
     this.setData({
         inputVal
     });
-    searchStudents(inputVal).then(res => {
-      console.log(res)
-      this.setData({
-        searchStudentsList: res
+    if(inputVal.length > 0) {
+      searchStudents(inputVal).then(res => {
+        console.log(res)
+        this.setData({
+          searchStudentsList: res
+        })
       })
-    })
+    }
   }
 })

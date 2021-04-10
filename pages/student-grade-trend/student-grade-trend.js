@@ -177,7 +177,7 @@ Page({
         console.log(sems)
 
         option.xAxis.data = sems
-        option.series.data = values
+        option.series[0].data = values
 
         this.setData({
           showGraph: true,
@@ -194,12 +194,14 @@ Page({
     this.setData({
         inputVal
     });
-    searchStudents(inputVal).then(res => {
-      console.log(res)
-      this.setData({
-        searchStudentsList: res
+    if(inputVal.length > 0) {
+      searchStudents(inputVal).then(res => {
+        console.log(res)
+        this.setData({
+          searchStudentsList: res
+        })
       })
-    })
+    }
   },
 
   onShareAppMessage: function (res) {

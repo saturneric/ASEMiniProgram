@@ -287,5 +287,10 @@ Page({
     wx.navigateTo({
       url: '/pages/my-children/my-children?openid=' + query
     })
+  },
+  bindRobot(){
+    wx.navigateTo({
+      url: '/pages/robot/robot'
+    })
   }
 })
